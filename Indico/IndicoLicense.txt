@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<license id="f3ee52a1-4bfe-4b68-be9b-2df9cb5a76c7" expiration="2019-09-19T22:00:00.0000000" type="Standard" Edition="Educational" maxConcurrentUsers="50" MaintenanceExpiration="2019-09-19T22:00:00.0000000" ApplicationName="Indyco Builder">
+  <name>Lab 50 students UPC</name>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>jgBsj1trldqhhqAigbYEYO2PyEo=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>dFyxfK8HfbBJbr/FRKe1ukwsCnpK6POPMmwwLWW77PhTiDjMkWLF6THcxjyLiTE8OnliW4K/Li4AWv5vGrqINL8bHhePjuZREu3md2PFpr/BrdNkLP/+fUEExY18uR2x6bIbm0fPPNgdce1DDFQcGJaaP3bDvLX7QvhmTrWIEfk=</SignatureValue>
+  </Signature>
+</license>

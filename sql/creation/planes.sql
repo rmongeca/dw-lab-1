@@ -1,0 +1,5 @@
+CREATE TABLE Planes (
+    planeID INT NOT NULL PRIMARY KEY,
+    Model VARCHAR(30) NOT NULL,
+    Manufacturer VARCHAR(50) NULL
+)

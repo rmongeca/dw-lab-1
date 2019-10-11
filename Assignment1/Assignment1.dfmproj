@@ -1,0 +1,41 @@
+<project name="Assignment1" id="dbdb4915-1473-4b6d-87fa-0c60fef6a408" toolversion="3.2.2.0">
+  <datawarehouse>
+    <datamarts>
+      <datamart name="Datamart" id="c32a51b8-28c6-4e1b-a8d7-df651cc97cc9">
+        <factschemas>
+          <factschema id="5b990b5e-7c1b-443d-abea-25733208b26d" />
+          <factschema id="c71f9cde-3e35-45c6-b322-638314d0c0fd" />
+          <factschema id="4f5176f1-a042-4732-96ef-1ee95ab5eb4b" />
+        </factschemas>
+      </datamart>
+    </datamarts>
+  </datawarehouse>
+  <conformedHierarchies />
+  <areas>
+    <area name="Flight_DW" id="968998df-cef0-4085-94ca-70065119a90e">
+      <factSchemas>
+        <factschema id="5b990b5e-7c1b-443d-abea-25733208b26d" />
+        <factschema id="c71f9cde-3e35-45c6-b322-638314d0c0fd" />
+        <factschema id="4f5176f1-a042-4732-96ef-1ee95ab5eb4b" />
+      </factSchemas>
+    </area>
+  </areas>
+  <customProperties>
+    <attributes />
+    <measures />
+    <facts />
+  </customProperties>
+  <linkedProperties />
+  <projectOptions>
+    <logicModelingProfile name="starschema" isEditable="false" />
+    <logicModelingNamePrefixes DimensionTableNamePrefix="DT_" FactTableNamePrefix="FT_" BridgeTableNamePrefix="BT_" NavigationTableNamePrefix="NAV_" JunkTableNamePrefix="JT_" PrimaryKeyNamePrefix="PK_" ForeignKeyNamePrefix="FK_" TableIdNamePrefix="ID_" ConformedDimensionViewNamePrefix="DTV_" TemporalScenarioRollbackFromFieldName="FROM" TemporalScenarioRollbackToFieldName="TO" TemporalScenarioRollbackMasterFieldName="MASTER" />
+    <logicalModelingDefaultTypes>
+      <attributes name="VARCHAR" length="255" scale="-1" precision="-1" />
+      <measures name="DECIMAL" length="-1" scale="3" precision="18" />
+      <surrogates name="INT" length="-1" scale="-1" precision="-1" />
+      <temporalScenarioRollbackFromType name="DATE" length="-1" scale="-1" precision="-1" />
+      <temporalScenarioRollbackToType name="DATE" length="-1" scale="-1" precision="-1" />
+      <temporalScenarioRollbackMasterType name="INT" length="-1" scale="-1" precision="-1" />
+    </logicalModelingDefaultTypes>
+  </projectOptions>
+</project>
