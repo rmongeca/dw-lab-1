@@ -1,5 +1,7 @@
 -- Flight Hours per day per aircraft
 -- Flight Cycles per day per aircraft
+-- this sum and group by are not applying any aggregation since our finest granularity is day 
+-- in our ETL we already precalculating the number of takeoffs for that plane and their total duration
 SELECT f.dateID, f.planeID,
     SUM(f.flight_takeoff) TO,
     SUM(f.flight_duration) FH

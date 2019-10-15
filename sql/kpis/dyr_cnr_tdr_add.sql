@@ -16,7 +16,7 @@ ORDER BY d.Month, d.Year, f.planeID
 -- Cancellation Rate (CNR) per year per model
 -- Delay Rate (DYR) per year per model
 -- Technical Dispatch Reliability (TDR) per year per model
--- Average Delay Duration (ADD) per year per airctaft
+-- Average Delay Duration (ADD) per year per model
 SELECT d.Year, p.Model,
     100*SUM(f.flight_cancellation) / SUM(f.flight_takeoff) CNR,
     100*SUM(f.flight_delay) / SUM(f.flight_takeoff) DYR,
