@@ -1,6 +1,6 @@
 CREATE TABLE Person (
     personID INT NOT NULL PRIMARY KEY,
-    personnel_type VARCHAR(30) NOT NULL,
+    personnel_type VARCHAR(30) NOT NULL, -- pilot/maintenance
     airport VARCHAR(50) NULL
 )
 
