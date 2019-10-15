@@ -43,18 +43,6 @@ WHERE   d.dateID = f.dateID
 GROUP BY d.Month, d.Year, f.planeID 
 ORDER BY d.Month, d.Year, f.planeID
 
--- Groupped PRR and MRR per month per aircraft
-SELECT
-    d.Month, d.Year, f.planeID, pe.personnel_type,
-    1000*SUM(log_count) / SUM(f.flight_duration) RRh
-    100*SUM(log_count) / SUM(f.flight_takeoff) RRc
-FROM Dates d, Flights f, Logs l, Person pe
-WHERE   d.dateID = f.dateID 
-    AND f.dateID = l.dateID
-    AND f.planeID = l.planeID
-    AND l.personID = pe.personID
-GROUP BY d.Month, d.Year, f.planeID, pe.personnel_type
-ORDER BY d.Month, d.Year, f.planeID, pe.personnel_type
 
 -- Maintennce Report Rate per hour (MRRh) per airport of reporting person per aircraft
 -- Maintennce Report Rate per cycle (MRRc) per airport of reporting person per aircraft
@@ -70,3 +58,6 @@ WHERE   d.dateID = f.dateID
     AND pe.personnel_type = 'maintenance'
 GROUP BY d.Month, d.Year, f.planeID 
 ORDER BY d.Month, d.Year, f.planeID
+
+
+
