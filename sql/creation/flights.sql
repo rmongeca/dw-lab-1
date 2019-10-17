@@ -8,7 +8,7 @@ CREATE TABLE Flights (
     flight_delay_duration FLOAT NOT NULL, --in hours
     CONSTRAINT PK_Flights PRIMARY KEY(dateID, planeID),
     CONSTRAINT FK_Flights_Dates FOREIGN KEY(dateID)
-        REFERENCES Dates(dateID)
+        REFERENCES Dates(dateID),
     CONSTRAINT FK_Flights_Planes FOREIGN KEY(planeID)
         REFERENCES Planes(planeID)
 )
