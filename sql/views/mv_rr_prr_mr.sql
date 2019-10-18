@@ -1,9 +1,13 @@
 
-CREATE MATERIALIZED VIEW mv_monthly_planes_person_logs AS
+CREATE MATERIALIZED VIEW mv_logs_monthly_planes_person
+REFRESH FAST ON COMMIT
+ENABLE QUERY REWRITE
+AS
 SELECT
     d.Month, d.Year, pe.personnel_type,pe.airport,p.planeID, p.Model,
-    1000*SUM(log_count) / SUM(f.flight_duration) RRh,
-    100*SUM(log_count) / SUM(f.flight_takeoff) RRc
+    SUM(l.log_count) Log_count,
+    SUM(f.flight_duration) FT,
+ 	SUM(f.flight_takeoff) FC
 FROM Flights f, Logs l, Dates d, Person pe, Planes p
 WHERE  f.planeID = l.planeID
 	AND f.dateID = l.dateID

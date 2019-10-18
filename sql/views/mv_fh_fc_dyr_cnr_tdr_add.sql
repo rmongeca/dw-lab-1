@@ -1,19 +1,19 @@
 
-
-CREATE MATERIALIZED VIEW mv_flight_monthly_model AS
+CREATE MATERIALIZED VIEW mv_flights_monthly_model
+REFRESH FAST ON COMMIT
+ENABLE QUERY REWRITE
+AS
 SELECT d.Month,d.Year, p.Model,
  	SUM(f.flight_takeoff) FC,
     SUM(f.flight_duration) FH,
-    100*SUM(f.flight_cancellation) / SUM(f.flight_takeoff) CNR,
-    100*SUM(f.flight_delay) / SUM(f.flight_takeoff) DYR,
-    100 - (100*(SUM(f.flight_delay) + SUM(f.flight_cancellation)) 
-        / SUM(f.flight_takeoff)) TDR,
-    100*SUM(f.flight_delay_duration) / SUM(f.flight_delay) DDA
+    SUM(f.flight_cancellation) FCancel,
+    SUM(f.flight_delay) FDelay,
+    SUM(f.flight_delay_duration) FDelay_duration
 FROM  Flights f, Dates d,Planes p
 WHERE   f.dateID = d.dateID
     AND f.planeID = p.planeID
 GROUP BY d.Month,d.Year, p.Model
-ORDER BY d.Month,d.Year, p.Model;
+ORDER BY d.Month,d.Year, p.Model
 
 -- From this materialized view we can get
 -- i.Flight Hours per month per model

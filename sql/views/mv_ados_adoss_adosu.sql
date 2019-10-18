@@ -1,18 +1,17 @@
 
----------------------------------------------
----------------M view------------------------
----------------------------------------------
-
-CREATE MATERIALIZED VIEW mv_maintenance_monthly_aircraft_schedule AS
+CREATE MATERIALIZED VIEW mv_maintenance_month_plane_skd
+REFRESH FAST ON COMMIT
+ENABLE QUERY REWRITE
+AS
 SELECT
     d.Month, d.Year, m.planeID,p.Model,s.schedule_type,
-    SUM(m.maintenance_duration)/24 AS maintenance_duration
+    SUM(m.maintenance_duration) maintenance_duration
 FROM  Maintenance m, Dates d, Planes p, Scheduled s
 WHERE   m.dateID = d.dateID
     AND m.scheduledID = s.scheduledID
     AND m.planeID = p.planeID
 GROUP BY d.Month, d.Year, m.planeID,p.Model,s.schedule_type
-ORDER BY d.Month, d.Year, m.planeID,p.Model, s.schedule_type ;
+ORDER BY d.Month, d.Year, m.planeID,p.Model, s.schedule_type
 
 --- i. on this m view we can apply a selection --> schedule_type = 'unscheduled' 
 --- to get ADOSU by aircraft-month
