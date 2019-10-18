@@ -3,7 +3,7 @@
 -- this sum and group by are not applying any aggregation since our finest granularity is day 
 -- in our ETL we already precalculating the number of takeoffs for that plane and their total duration
 SELECT f.dateID, f.planeID,
-    SUM(f.flight_takeoff) TO,
+    SUM(f.flight_takeoff) FC,
     SUM(f.flight_duration) FH
 FROM Flights f
 GROUP BY f.dateID, f.planeID
@@ -12,7 +12,7 @@ ORDER BY f.dateID, f.planeID
 -- Flight Hours per month per model
 -- Flight Cycles per month per model
 SELECT d.Month, d.Year, p.Model,
-    SUM(f.flight_takeoff) TO,
+    SUM(f.flight_takeoff) FC,
     SUM(f.flight_duration) FH
 FROM Flights f, Dates d, Planes p
 WHERE   f.dateID = d.dateID
@@ -23,7 +23,7 @@ ORDER BY d.Month, d.Year, p.Model
 -- Flight Hours per Year per model
 -- Flight Cycles per Year per model
 SELECT d.Year, p.Model,
-    SUM(f.flight_takeoff) TO,
+    SUM(f.flight_takeoff) FC,
     SUM(f.flight_duration) FH
 FROM Flights f, Dates d, Planes p
 WHERE   f.dateID = d.dateID

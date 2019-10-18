@@ -2,13 +2,13 @@
 
 CREATE MATERIALIZED VIEW mv_flight_monthly_model AS
 SELECT d.Month,d.Year, p.Model,
- 	SUM(f.flight_takeoff) TO,
+ 	SUM(f.flight_takeoff) FC,
     SUM(f.flight_duration) FH,
     100*SUM(f.flight_cancellation) / SUM(f.flight_takeoff) CNR,
     100*SUM(f.flight_delay) / SUM(f.flight_takeoff) DYR,
     100 - (100*(SUM(f.flight_delay) + SUM(f.flight_cancellation)) 
         / SUM(f.flight_takeoff)) TDR,
-    100*SUM(f.flight_delay_duration) / SUM(f.flight_delay) ADD
+    100*SUM(f.flight_delay_duration) / SUM(f.flight_delay) DDA
 FROM  Flights f, Dates d,Planes p
 WHERE   f.dateID = d.dateID
     AND f.planeID = p.planeID
@@ -23,7 +23,7 @@ ORDER BY d.Month,d.Year, p.Model;
 -- v. Cancellation Rate (CNR) per year per model
 -- vi. Delay Rate (DYR) per year per model
 -- vii.Technical Dispatch Reliability (TDR) per year per model
--- viii. Average Delay Duration (ADD) per year per model
+-- viii. Average Delay Duration (DDA) per year per model
 
 -- From this materialized view we can NOT get
 -- Flight Hours per day per aircraft
@@ -33,7 +33,7 @@ ORDER BY d.Month,d.Year, p.Model;
 -- Cancellation Rate (CNR) per month per aircraft
 -- Delay Rate (DYR) per month per aircraft
 -- Technical Dispatch Reliability (TDR) per month per aircraft
--- Average Delay Duration (ADD) per month per airctaft
+-- Average Delay Duration (DDA) per month per airctaft
 
 
 -- If we were to add aircraft (planeID) in the above query (constructing the materialized view)  

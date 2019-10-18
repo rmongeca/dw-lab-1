@@ -1,8 +1,8 @@
 
 CREATE MATERIALIZED VIEW mv_monthly_planes_person_logs AS
 SELECT
-    d.Month, d.Year, pe.personnel_type,pe.airport,p.planeID, p.Model
-    1000*SUM(log_count) / SUM(f.flight_duration) RRh
+    d.Month, d.Year, pe.personnel_type,pe.airport,p.planeID, p.Model,
+    1000*SUM(log_count) / SUM(f.flight_duration) RRh,
     100*SUM(log_count) / SUM(f.flight_takeoff) RRc
 FROM Flights f, Logs l, Dates d, Person pe, Planes p
 WHERE  f.planeID = l.planeID
