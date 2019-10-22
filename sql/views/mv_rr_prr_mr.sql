@@ -4,9 +4,9 @@ REFRESH FAST ON COMMIT
 ENABLE QUERY REWRITE
 AS
 SELECT
-    d.Month, d.Year, pe.personnel_type,pe.airport,p.planeID, p.Model,
+    d.Month, d.Year, pe.personnel_type, pe.airport, p.planeID, p.Model,
     SUM(l.log_count) Log_count,
-    SUM(f.flight_duration) FT,
+    SUM(f.flight_duration) FH,
  	SUM(f.flight_takeoff) FC
 FROM Flights f, Logs l, Dates d, Person pe, Planes p
 WHERE  f.planeID = l.planeID
@@ -14,8 +14,8 @@ WHERE  f.planeID = l.planeID
     AND f.dateID = d.dateID 
     AND f.planeID = p.planeID
     AND l.personID = pe.personID
-GROUP BY d.Month, d.Year, pe.personnel_type,pe.airport,p.planeID, p.Model
-ORDER BY d.Month, d.Year, pe.personnel_type,pe.airport,p.planeID, p.Model
+GROUP BY d.Month, d.Year, pe.personnel_type, pe.airport, p.planeID, p.Model
+ORDER BY d.Month, d.Year, pe.personnel_type, pe.airport, p.planeID, p.Model
 
 
 -- SELECTION pe.personnel_type = 'maintenance'
