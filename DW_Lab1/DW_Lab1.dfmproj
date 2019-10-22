@@ -1,4 +1,4 @@
-<project name="Assignment1" id="dbdb4915-1473-4b6d-87fa-0c60fef6a408" toolversion="3.2.2.0">
+<project name="DW_Lab1" id="dbdb4915-1473-4b6d-87fa-0c60fef6a408" toolversion="3.2.2.0">
   <datawarehouse>
     <datamarts>
       <datamart name="Datamart" id="c32a51b8-28c6-4e1b-a8d7-df651cc97cc9">
